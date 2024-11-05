@@ -8,8 +8,11 @@ from pantallaNotificaciones import mostrarPantallaNotificaciones
 from pantallaUbicacion import mostrarPantallaUbicacion
 
 
+
 def main(page: ft.Page):
      #Variables
+    page.title="Trabajo Final"
+    
     navegacion=ft.Tabs(
         selected_index=0,
         animation_duration=500,

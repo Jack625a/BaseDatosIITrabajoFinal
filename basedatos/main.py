@@ -1,5 +1,6 @@
 import flet as ft
-import sqlite3
+import sqlite3 #Dependencias sqlite
+
 #Configuracion de la base de datos 
 #Paso 2. Crear la base de datos o conectar con la base de datos
 conexion=sqlite3.connect('datos.db')
@@ -12,7 +13,7 @@ conexion.close()
 def mostrarUsuarios():
     conexion=sqlite3.connect('datos.db')
     cursor=conexion.cursor()
-    cursor.execute("SELECT nombre,ci FROM usuarios")
+    cursor.execute("SELECT * FROM usuarios")
     usuarios=cursor.fetchall()
     conexion.close()
     return usuarios
@@ -33,9 +34,8 @@ def mostrarInterfaz():
                             padding=10,
                             content=ft.Column(
                                 [
-                                    ft.Text(value=usuario[0],size=30,weight=ft.FontWeight.BOLD),
-                                    ft.CupertinoRadio(label=usuario[1])
-                                    
+                                    ft.Text(value=usuarios[1],size=30,weight=ft.FontWeight.BOLD),
+                                    ft.Text(value=usuarios[2])
                                 ]
                             ),
                         ),
@@ -50,13 +50,17 @@ def mostrarInterfaz():
 
     ]
     return ft.Container(
-        alignment=ft.alignment.top_center,
+        alignment=ft.alignment.center,
         content=ft.Column([
             ft.Text(value="Pantalla Datos obtenidos",size=35),
-            ft.ResponsiveRow(usuariosTarjetas,spacing=8)
+            ft.ResponsiveRow(usuariosTarjetas,spacing=10)
         ],
         alignment="center",
         spacing=20           
         ),
     )
 
+
+
+
+ft.app(main)

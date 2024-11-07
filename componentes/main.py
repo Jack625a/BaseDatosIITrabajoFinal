@@ -1,6 +1,6 @@
 import flet as ft
 #Importar las pantallas de cada opcion
-from pantallaInicio import mostrarPantallaInicio
+from pantallaInicio import mostrarInterfaz
 from pantallaProductos import mostrarPantallaProductos
 from pantallaServicios import mostrarPantallaServicios
 from pantallaPerfil import mostrarPantallaPerfil
@@ -11,14 +11,14 @@ from pantallaUbicacion import mostrarPantallaUbicacion
 
 def main(page: ft.Page):
      #Variables
-    page.title="Trabajo Final"
+    page.title="Trabajo Final "
     
     navegacion=ft.Tabs(
         selected_index=0,
         animation_duration=500,
     
         tabs=[
-            ft.Tab(text="Inicio",icon=ft.icons.HOME,content=mostrarPantallaInicio()),
+            ft.Tab(text="Inicio",icon=ft.icons.HOME,content=mostrarInterfaz()),
             ft.Tab(text="Productos",icon=ft.icons.SHOPPING_BASKET,content=mostrarPantallaProductos()),
             ft.Tab(text="Servicios",icon=ft.icons.HOME_REPAIR_SERVICE,content=mostrarPantallaServicios()),
             ft.Tab(text="Perfil",icon=ft.icons.PERSON_4, content=mostrarPantallaPerfil()),
